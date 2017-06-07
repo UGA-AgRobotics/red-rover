@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- Node to read data from reach via serial -->
+  <node pkg="nmea_navsat_driver" type="nmea_serial_driver" name="reach_nmea_driver" respawn="true">
+    <param name="port" value="/dev/ttyACM1"/>
+    <param name="baud" value="115200"/>
+    <param name="frame_id" value="reach_link"/>
+
+    <!-- published remap -->
+    <remap from="/fix" to="/reach/fix"/>
+    <remap from="/vel" to="/reach/vel"/>
+    <remap from="/time_reference" to="/reach/time_reference"/>
+  </node>
+
+<!-- navsat transform reach gps data -->
+  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_reach" 
+  respawn="true" clear_params="true">
+    <rosparam file="$(find sensor_fusion)/config/reach/navsat_transform.yaml" command="load" />
+
+    <!-- subscribed remap -->
+    <remap from="/gps/fix" to="/reach/fix"/>
+    <remap from="/odometry/filtered" to="/odometry/filtered/reach"/>
+
+    <!-- published remap -->
+    <remap from="/odometry/gps" to="/odometry/reach"/>
+    <remap from="/gps/filtered" to="/gps/filtered/reach"/>    
+  </node>
+
+<!-- Fused from Reach GPS -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_reach" clear_params="true">
+    <rosparam file="$(find sensor_fusion)/config/reach/ekf_localization.yaml" command="load" />
+
+    <!-- published remap -->
+    <remap from="/odometry/filtered" to="/odometry/filtered/reach"/>
+  </node>
+
+</launch>

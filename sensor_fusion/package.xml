@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <package>
-  <name>red-rover-core</name>
+  <name>sensor_fusion</name>
   <version>0.0.0</version>
-  <description>The red-rover-core package</description>
+  <description>The sensor_fusion package</description>
   <maintainer email="brad@todo.todo">brad</maintainer>
   <license>BSD</license>
-  
+
   <buildtool_depend>catkin</buildtool_depend>
+
   <export>
   </export>
 </package>
