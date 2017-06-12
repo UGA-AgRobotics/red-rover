@@ -35,7 +35,7 @@
   </node>
 
 <!-- Node to read data from reach via serial -->
-  <node pkg="nmea_navsat_driver" type="nmea_serial_driver" name="reach_nmea_driver" respawn="true">
+  <node pkg="nmea_navsat_driver" type="nmea_serial_driver" name="reach_nmea_driver" respawn="false">
     <param name="port" value="/dev/ttyACM1"/>
     <param name="baud" value="115200"/>
     <param name="frame_id" value="reach_link"/>
