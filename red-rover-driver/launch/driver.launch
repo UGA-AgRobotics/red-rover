@@ -4,4 +4,16 @@
 		<param name="port" value="/dev/ttyACM0"/>
 		<param name="baud" value="57600"/>
 	</node>
+
+	<node pkg="pid" type="controller" name="velocity_pid">
+
+        <!-- Subscriber -->
+        <remap from="/state" to="/driver/encoder_velocity"/>
+
+        <!-- Publisher -->
+        <remap from="/control_effort" to="/driver/linear_drive_actuator"/>
+
+        <param name="upper_limit" value="120" />
+        <param name="lower_limit" value="0" />
+    </node>
 </launch>
