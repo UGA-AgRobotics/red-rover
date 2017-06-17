@@ -11,6 +11,7 @@
 
         <!-- Publisher -->
         <remap from="/control_effort" to="/driver/linear_drive_actuator"/>
+        <remap from="/setpoint" to="/velocity_pid/setpoint"/>
 
         <param name="upper_limit" value="120" />
         <param name="lower_limit" value="0" />
@@ -22,6 +23,7 @@
 
         <!-- Publisher -->
         <remap from="/control_effort" to="/driver/articulation_relay"/>
+        <remap from="/setpoint" to="/turning_pid/setpoint"/>
 
         <param name="upper_limit" value="2"/>
         <param name="lower_limit" value="0"/>
