@@ -21,7 +21,7 @@
         <remap from="/state" to="/driver/pivot"/>
 
         <!-- Publisher -->
-
+        <remap from="/control_effort" to="/driver/articulation_relay"/>
 
         <param name="upper_limit" value="2"/>
         <param name="lower_limit" value="0"/>
