@@ -14,8 +14,8 @@
         <remap from="/setpoint" to="/velocity_pid/setpoint"/>
         <remap from="/pid_enable" to="/velocity_pid/pid_enable"/>
 
-        <param name="upper_limit" value="120" />
-        <param name="lower_limit" value="0" />
+        <param name="upper_limit" value="138" />
+        <param name="lower_limit" value="65" />
     </node>
 
     <node pkg="pid" type="controller" name="turning_pid">
