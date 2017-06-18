@@ -12,8 +12,8 @@
         <!-- Publisher -->
         <remap from="control_effort" to="/driver/linear_drive_actuator"/>
 
-        <param name="upper_limit" value="138" />
-        <param name="lower_limit" value="65" />
+        <param name="upper_limit" value="48" />
+        <param name="lower_limit" value="-25" />
     </node>
 
     <node pkg="pid" type="controller" name="turning_pid" ns="turning">
